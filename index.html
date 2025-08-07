@@ -11,6 +11,59 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            /* ─── HERO LAYOUT ───────────────────────────── */
+.hero{
+  position:relative;
+  height:100vh;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+}
+
+/* background image stretched edge-to-edge */
+.hero-bg{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;    /* behave like CSS background */
+  z-index:-1;          /* sit under text */
+  filter:brightness(.9);
+}
+
+/* small logo top-left */
+.brand{
+  position:absolute;
+  top:2rem;
+  left:2rem;
+  font-size:1.25rem;
+  font-family:'SF Pro Display',sans-serif;
+  text-decoration:none;
+  color:#fff;
+  opacity:.8;
+}
+
+/* stack in the centre */
+.copy{text-align:center;max-width:90%;}
+.copy h1{font-size:clamp(3rem,10vw,7rem);font-weight:200;margin:0;}
+.copy .tagline{font-size:clamp(1rem,3vw,2rem);font-weight:300;margin:.5em 0 2em;}
+.coming-soon{
+  background:rgba(255,255,255,.15);
+  backdrop-filter:blur(6px);
+  padding:1rem 3rem;
+  border-radius:9999px;
+  border:none;
+  font-size:1.1rem;
+  color:#fff;
+  cursor:pointer;
+}
+
+/* remove the old gradient + waves */
+.container,
+.fabric-bg{display:none;}
+
         }
 
         body {
@@ -191,9 +244,29 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Fabric background waves -->
-        <div class="fabric-bg"></div>
+    <!-- ───────────── HERO ───────────── -->
+<header class="hero">
+  <!-- ❶ Full-bleed background image -->
+  <img src="tshirt.jpg" alt="Lookpop T-shirt" class="hero-bg">
+
+  <!-- ❷ Tiny word-mark / nav -->
+  <a href="/" class="brand">lookpop</a>
+
+  <!-- ❸ Centered copy block -->
+  <div class="copy">
+    <h1>lookpop</h1>
+    <p class="tagline">one piece → endless fits</p>
+    <button class="coming-soon">Coming&nbsp;Soon</button>
+
+    <!-- (optional) wait-list; comment out if you don’t want it on top of the photo) -->
+    <!--
+    <form class="waitlist-form" id="waitlist-form">
+      <input type="email" class="email-input" placeholder="Enter your email" required>
+      <button type="submit" class="submit-btn">Join Waitlist</button>
+    </form>
+    -->
+  </div>
+</header>
 
         <!-- Main content -->
         <div class="content">
